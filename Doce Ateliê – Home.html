@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Doce Ateliê – Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF5EE;--soft:#FDEBDC;--card:#fff;--ink:#4a2f22;--mut:#8a6a58;--or:#F5A855;--terra:#CD8F6E;--line:#EBCDB8;--ok:#5d8a4e;--err:#b3412e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1d16;--soft:#38271e;--card:#43302a;--ink:#fbeadd;--mut:#d3b4a0;--line:#5f463a;--err:#ff9b86}}
+:root[data-theme="dark"]{--bg:#2a1d16;--soft:#38271e;--card:#43302a;--ink:#fbeadd;--mut:#d3b4a0;--line:#5f463a;--err:#ff9b86}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 'Nunito Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:'Gilda Display',Georgia,serif;font-weight:400;margin:0}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:.6rem 1.1rem;background:var(--terra);color:#fff;font-weight:700}
+button.alt{background:transparent;color:var(--ink);border:1.5px solid var(--terra)}
+button.or{background:var(--or);color:#4a2f22}
+:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+input{font:inherit;padding:.55rem .7rem;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;padding:.9rem 1.2rem;background:var(--soft);border-bottom:1px solid var(--line)}
+.logo{font-family:'Gilda Display',serif;font-size:1.7rem;margin-right:auto}
+main{max-width:1050px;margin:0 auto;padding:1.2rem}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:1rem;align-items:center;background:var(--or);color:#4a2f22;border-radius:22px;padding:2rem;margin-bottom:2rem}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin-bottom:.6rem}
+.hero svg{width:100%;max-height:240px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.2rem}
+.box h3{margin-bottom:.4rem}
+.row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+.pr{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.pr svg{display:block;width:100%;height:auto}
+.pr div{padding:.6rem .8rem}
+.price{font-weight:700;color:var(--terra)}
+.tabs{display:flex;gap:.4rem;margin-bottom:.8rem;flex-wrap:wrap}
+.tabs button{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.tabs button.on{background:var(--terra);color:#fff;border-color:var(--terra)}
+.tabs.big button.on{background:var(--or);color:#4a2f22;border-color:var(--or)}
+label{display:block;font-size:.9rem;color:var(--mut);margin:.6rem 0 .2rem}
+.auth{max-width:520px;margin:0 auto 2rem}
+.msg{margin-top:.8rem;font-weight:700}.msg.e{color:var(--err)}.msg.s{color:var(--ok)}
+.mut{color:var(--mut)}
+footer{text-align:center;padding:1.5rem;color:var(--mut);border-top:1px solid var(--line)}
+@media(max-width:640px){.hero{grid-template-columns:1fr;padding:1.3rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="logo">Doce Ateliê</div><button class="alt" onclick="openAuth('c','login')">Entrar</button><button class="or" onclick="openAuth('c','cad')">Cadastrar</button></header>
+<main>
+<section class="hero"><div><h1>Doces e bolos feitos à mão</h1><p>Peça seus favoritos com poucos toques, ou publique e venda os seus.</p><div class="row"><button onclick="openAuth('c','cad')">Quero comprar</button><button class="alt" style="border-color:#4a2f22;color:#4a2f22" onclick="openAuth('a','cad')">Quero vender</button></div></div><div id="h"></div></section>
+
+<div class="cols">
+<div class="box"><h3>Sou cliente</h3><p class="mut">Veja os produtos, favorite, monte o carrinho e acompanhe o status do pedido.</p><div class="row"><button onclick="openAuth('c','login')">Entrar</button><button class="alt" onclick="openAuth('c','cad')">Criar cadastro</button></div></div>
+<div class="box"><h3>Sou da loja (ADM)</h3><p class="mut">Publique produtos, crie cupons, confira pagamentos e atualize os pedidos.</p><div class="row"><button onclick="openAuth('a','login')">Entrar</button><button class="alt" onclick="openAuth('a','cad')">Criar cadastro</button></div></div>
+</div>
+
+<h2 style="margin-bottom:.8rem">Destaques da casa</h2>
+<div class="grid" id="g"></div>
+
+<section class="box auth" id="auth" aria-live="polite">
+<div class="tabs big" role="tablist"><button id="tc" onclick="openAuth('c',m,1)">Cliente</button><button id="ta" onclick="openAuth('a',m,1)">ADM</button></div>
+<div class="tabs"><button id="tl" onclick="openAuth(r,'login',1)">Entrar</button><button id="tg" onclick="openAuth(r,'cad',1)">Cadastrar</button></div>
+<h2 id="tt" style="margin-bottom:.4rem"></h2>
+<div id="f"></div><div class="msg" id="ms"></div>
+</section>
+</main>
+<footer>Doce Ateliê · Comércio de doces e bolos</footer>
+<script>
+const $=s=>document.querySelector(s),R=n=>'R$ '+n.toFixed(2).replace('.',',');
+const art=(t,a,b)=>{const bg=`<rect width="200" height="150" fill="${b}" opacity=".45"/><ellipse cx="100" cy="128" rx="78" ry="10" fill="#fff" opacity=".8"/>`;let s='';
+if(t=='bolo')s=`<rect x="50" y="78" width="100" height="44" rx="8" fill="${b}"/><rect x="62" y="48" width="76" height="36" rx="8" fill="${a}"/><path d="M62 56h76v8c-6 10-10-2-16 6s-10-4-18 4-10-6-18 2-10-8-24 0z" fill="#fff" opacity=".85"/><circle cx="100" cy="42" r="7" fill="#c0392b"/><rect x="99" y="30" width="2" height="10" fill="#6b8e4e"/>`;
+else if(t=='cupcake')s=`<path d="M64 84h72l-10 40H74z" fill="${b}" stroke="${a}" stroke-width="2"/><circle cx="100" cy="72" r="30" fill="${a}"/><circle cx="100" cy="50" r="20" fill="${a}"/><circle cx="100" cy="34" r="11" fill="${a}"/><circle cx="100" cy="22" r="6" fill="#c0392b"/><path d="M80 66q20 10 40 0M86 48q14 8 28 0" stroke="#fff" stroke-width="3" fill="none" opacity=".6"/>`;
+else if(t=='brigadeiro')s=[[62,100],[100,100],[138,100],[81,70],[119,70],[100,42]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="18" fill="${a}"/><g fill="${b}"><rect x="${x-9}" y="${y-8}" width="5" height="2" rx="1" transform="rotate(30 ${x} ${y})"/><rect x="${x+2}" y="${y-10}" width="5" height="2" rx="1" transform="rotate(-40 ${x} ${y})"/><rect x="${x+3}" y="${y+4}" width="5" height="2" rx="1" transform="rotate(60 ${x} ${y})"/></g>`).join('');
+else s=`<path d="M40 112L100 40l60 72z" fill="${b}" stroke="${a}" stroke-width="5" stroke-linejoin="round"/><path d="M58 98h84" stroke="${a}" stroke-width="4"/><circle cx="82" cy="84" r="7" fill="#c0392b"/><circle cx="104" cy="78" r="7" fill="#c0392b"/><circle cx="122" cy="92" r="7" fill="#c0392b"/><circle cx="96" cy="64" r="6" fill="#c0392b"/>`;
+return `<svg viewBox="0 0 200 150" role="img" aria-label="${t}" xmlns="http://www.w3.org/2000/svg">${bg}${s}</svg>`};
+$('#h').innerHTML=art('bolo','#8a4b2d','#fff3e0');
+$('#g').innerHTML=[['Bolo de cenoura',48,'bolo','#8a4b2d','#F5A855'],['Cupcake de morango',9.5,'cupcake','#f4a0b0','#CD8F6E'],['Caixa de brigadeiros',36,'brigadeiro','#5a3325','#fde9d6'],['Torta de frutas vermelhas',62,'torta','#CD8F6E','#fde0b8']].map(([n,p,t,a,b])=>`<div class="pr">${art(t,a,b)}<div><b>${n}</b><br><span class="price">${R(p)}</span></div></div>`).join('');
+let r='c',m='login',accts=[];
+const F=(id,l,t='text',ex='')=>`<label for="${id}">${l}</label><input id="${id}" type="${t}" ${ex}>`;
+function openAuth(role,mode,stay){r=role;m=mode;
+$('#tc').className=r=='c'?'on':'';$('#ta').className=r=='a'?'on':'';$('#tl').className=m=='login'?'on':'';$('#tg').className=m=='cad'?'on':'';
+$('#tt').textContent=(m=='login'?'Entrar':'Criar cadastro')+' · '+(r=='c'?'Cliente':'ADM');
+$('#ms').textContent='';$('#ms').className='msg';
+$('#f').innerHTML=(m=='login'?F('em','E-mail','email','autocomplete="email"')+F('pw','Senha','password','autocomplete="current-password"')+'<div class="row"><button onclick="go()">Entrar</button></div>'
+:F('nm',r=='c'?'Nome completo':'Nome do responsável','text','autocomplete="name"')+(r=='a'?F('lj','Nome da loja'):'')+F('em','E-mail','email','autocomplete="email"')+F('tl2','Telefone','tel','autocomplete="tel"')+F('pw','Senha (mínimo 6 caracteres)','password','autocomplete="new-password"')+F('pw2','Confirmar senha','password','autocomplete="new-password"')+'<div class="row"><button onclick="go()">Criar cadastro</button></div>');
+if(!stay)$('#auth').scrollIntoView();}
+function say(t,c){$('#ms').textContent=t;$('#ms').className='msg '+c}
+function go(){const v=id=>($('#'+id)?$('#'+id).value.trim():''),em=v('em').toLowerCase(),pw=v('pw');
+if(!/^\S+@\S+\.\S+$/.test(em))return say('Digite um e-mail válido.','e');
+if(m=='login'){const a=accts.find(x=>x.em==em&&x.r==r);
+if(!a)return say('Conta não encontrada. Crie seu cadastro primeiro.','e');
+if(a.pw!=pw)return say('Senha incorreta.','e');
+say('Bem-vindo(a), '+a.nm+'! Aqui você seria levado ao '+(r=='c'?'catálogo de produtos.':'painel da loja.'),'s');return}
+if(!v('nm')||(r=='a'&&!v('lj'))||!v('tl2'))return say('Preencha todos os campos.','e');
+if(pw.length<6)return say('A senha precisa ter pelo menos 6 caracteres.','e');
+if(pw!=v('pw2'))return say('As senhas não são iguais.','e');
+if(accts.some(x=>x.em==em&&x.r==r))return say('Este e-mail já está cadastrado.','e');
+accts.push({r,em,pw,nm:v('nm')});say('Cadastro criado! Agora é só entrar.','s');setTimeout(()=>openAuth(r,'login',1),1200)}
+openAuth('c','login',1);
+</script>
+</body>
+</html>
