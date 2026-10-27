@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2a1d16;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #38271e;
+    color: white;
+    border-bottom: 0.5px solid  #615246;
+    
+}
+
+.nav button {
+    padding: 9px 17px;
+    margin: 0 8px 0 8px;
+    border-radius: 7px;
+}
+
+.nav button:hover{
+    cursor: pointer;
+}
+
+header .logo {
+    color: white;
+    font-size: 25px;
+    font-family: 'Gilda Display', serif;
+    align-items: center;
+}
+
+header .cadastrar {
+    background-color: #f5a855;
+    border: navajowhite;
+    font: 'Nunito Sans', system-ui, sans-serif;
+}
+
+.entrar {
+    color: #fbeadd;
+    background-color: #38271e;
+    border: 1px solid #f5a855;
+    font: 'Nunito Sans', system-ui, sans-serif;
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: #fbeadd;
+    font-weight: 100;
+    font-size: 23px;
+    font-family:'Gilda Display', serif; 
+}
+
+.conta {
+    background-color: #38271e;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #615246;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.conta button {
+    border-radius: 8px;
+    padding: 9px 17px;
+    border: none;
+    margin-top: 10px;
+    background-color: #cd8f6c;
+    border-radius: 8px;
+    color: #fff;
+}
+
+form label {
+    color: #978e86;
+    font-weight: 100;
+}
+
+form input{
+    border-radius: 8px;
+    padding: 9px;
+    border: 1px solid #615246;
+    margin-bottom: 10px;
+    background-color: #38271e;
+    width: 90%;
+    color: #fff;
+    font-size: 17px;
+}
+
+.conta input:focus {
+    outline: none;
+    background-color: #615246;
+    color: #fff;
+}
+
+.conta button:hover{
+    cursor: pointer;
+}
