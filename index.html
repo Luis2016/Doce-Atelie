@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Doce Atelie</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO E MENU DE NAVEGAÇÃO -->
+    <header class="header">
+        <div class="logo">Doce Atelie</div>
+        <nav class="nav-menu">
+            <button id="btn-show-login" class="nav-btn active">Login</button>
+            <button id="btn-show-register" class="nav-btn">Cadastro</button>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="content">
+
+        <!-- PÁGINA DE LOGIN -->
+        <section id="login-page" class="form-container">
+            <h2>Entrar na sua conta</h2>
+            <form>
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" placeholder="Sua senha" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+        </section>
+
+        <!-- PÁGINA DE CADASTRO -->
+        <section id="register-page" class="form-container hidden">
+            <h2>Criar uma nova conta</h2>
+            <form>
+                <div class="input-group">
+                    <label for="reg-name">Nome Completo</label>
+                    <input type="text" id="reg-name" placeholder="Seu nome" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-password">Senha</label>
+                    <input type="password" id="reg-password" placeholder="Crie uma senha" required>
+                </div>
+                <button type="submit" class="submit-btn">Cadastrar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <p>&copy; 2026 - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
